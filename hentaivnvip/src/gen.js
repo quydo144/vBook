@@ -12,10 +12,11 @@ function execute(url, page) {
         let doc = response.html();
         let next = doc.select('.z-pagination').select('span.current + a').text();
         let el = doc.select(".comics-grid .entry");
+        console.log(el);
         let data = [];
         el.forEach(e => data.push({
-            name: e.select("a.name").first().text(),
-            link: e.select("a.name").first().attr("href"),
+            name: e.select("a").first().attr("title"),
+            link: e.select("a").first().attr("href"),
             cover: e.select("img").first().attr("src"),
             description: e.select(".date-time").first().text(),
             host: "https://hentaivnvip.net"
