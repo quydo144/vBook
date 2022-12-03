@@ -19,10 +19,10 @@
     {
       "name": "Hentaivnvip",
       "author": "Kizias",
-      "path": "https://raw.githubusercontent.com/nhocconsr/vbook-ext/master/123truyen/plugin.zip",
+      "path": "https://raw.githubusercontent.com/quydo144/vBook/main/hentaivnvip/plugin.zip",
       "version": 4,
-      "source": "https://123truyenz.com",
-      "icon": "https://raw.githubusercontent.com/nhocconsr/vbook-ext/master/123truyen/icon.png",
+      "source": "https://hentaivnvip.net",
+      "icon": "https://raw.githubusercontent.com/quydo144/vBook/main/hentaivnvip/icon.png",
       "description": "Đọc truyện trên trang hentaivnvip",
       "type": "novel",
       "locale": "vi_VN",
