@@ -7,10 +7,10 @@
     {
       "name": "Say hentai",
       "author": "Kizias",
-      "path": "https://raw.githubusercontent.com/nhocconsr/vbook-ext/master/doctruyen3q/plugin.zip",
+      "path": "https://raw.githubusercontent.com/quydo144/vBook/main/sayhentai/plugin.zip",
       "version": 2,
-      "source": "https://doctruyen3qme.com",
-      "icon": "https://raw.githubusercontent.com/nhocconsr/vbook-ext/master/doctruyen3q/icon.png",
+      "source": "https://sayhentai.me",
+      "icon": "https://raw.githubusercontent.com/quydo144/vBook/main/sayhentai/icon.png",
       "description": "Đọc truyện trên trang sayhentai",
       "type": "comic",
       "locale": "vi_VN",

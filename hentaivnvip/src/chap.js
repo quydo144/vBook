@@ -1,10 +1,10 @@
 function execute(url) {
-    var doc = fetch(url).html();
-    var el = doc.select(".chapter-content img");
-    const imgs = [];
-    for (var i = 0; i < el.size(); i++) {
-        var e = el.get(i);
-        var img = e.attr("src");
+    let doc = fetch(url).html();
+    let el = doc.select(".chapter-content img");
+    let imgs = [];
+    for (let i = 0; i < el.size(); i++) {
+        let e = el.get(i);
+        let img = e.attr("src");
         if (!img.match(/credit|hentaivn/)){
             imgs.push(img)
         }

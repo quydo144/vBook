@@ -1,5 +1,5 @@
 function execute(url) {
-    let doc =fetch(url).html();
+    let doc = fetch(url).html();
     let el = doc.select(".chap-list a")
     let list = [];
     for (var i = el.size() - 1; i >= 0; i--) {
@@ -10,5 +10,5 @@ function execute(url) {
             host: "https://hentaivnvip.net"
         })
     }
-    return Response.success(list);
+    return Response.success(null);
 }
