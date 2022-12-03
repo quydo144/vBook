@@ -29,13 +29,13 @@
       "tag": "nsfw"
     },
     {
-      "name": "Hako Novel",
+      "name": "Docln Novel",
       "author": "Kizias",
       "path": "https://raw.githubusercontent.com/quydo144/vBook/main/hako/hako.zip",
       "version": 1,
       "source": "https://docln.net",
       "icon": "https://raw.githubusercontent.com/quydo144/vBook/main/hako/icon.png",
-      "description": "Đọc truyện trên trang hako",
+      "description": "Đọc truyện trên trang docln.net",
       "type": "novel",
       "locale": "vi_VN"
     }
