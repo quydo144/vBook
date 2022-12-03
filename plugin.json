@@ -27,6 +27,17 @@
       "type": "novel",
       "locale": "vi_VN",
       "tag": "nsfw"
+    },
+    {
+      "name": "Hako",
+      "author": "Kizias",
+      "path": "https://raw.githubusercontent.com/quydo144/vBook/main/hako/hako.zip",
+      "version": 4,
+      "source": "https://hentaivnvip.net",
+      "icon": "https://raw.githubusercontent.com/quydo144/vBook/main/hako/icon.png",
+      "description": "Đọc truyện trên trang hako",
+      "type": "novel",
+      "locale": "vi_VN"
     }
   ]
 }
