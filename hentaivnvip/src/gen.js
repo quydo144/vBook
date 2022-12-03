@@ -11,7 +11,7 @@ function execute(url, page) {
                 link: e.select("a.name").first().attr("href"),
                 cover: e.select("img").first().attr("src"),
                 description: e.select(".date-time").first().text(),
-                host: "https://hentaivnvip.com"
+                host: "https://hentaivnvip.net"
             })
         );
         return Response.success(data,next)

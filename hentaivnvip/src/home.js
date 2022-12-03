@@ -1,8 +1,9 @@
 function execute() {
     return Response.success([
-        {title: "Cập Nhật", input: "https://hentaivnvip.com/truyen-hentai-moi", script: "gen.js"},
-        {title: "Hot Tuần", input: "https://hentaivnvip.com/truyen-hot", script: "gen.js"},
-        {title: "Full Color", input: "https://hentaivnvip.com/the-loai/full-color", script: "gen.js"},
-        {title: "Không Che", input: "https://hentaivnvip.com/the-loai/khong-che", script: "gen.js"},
+        {title: "Cập Nhật", input: "https://hentaivnvip.net/truyen-hentai-moi", script: "gen.js"},
+        {title: "Hot Tuần", input: "https://hentaivnvip.net/truyen-hot", script: "gen.js"},
+        {title: "Manhwa", input:"https://hentaivnvip.net/the-loai/manhwa", script: "gen.js"},
+        {title: "Full Color", input: "https://hentaivnvip.net/the-loai/full-color", script: "gen.js"},
+        {title: "Không Che", input: "https://hentaivnvip.net/the-loai/khong-che", script: "gen.js"},
     ]);
 }

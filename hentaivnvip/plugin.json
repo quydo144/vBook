@@ -1,15 +1,15 @@
 {
   "metadata": {
     "name": "HentaiVN VIP",
-    "author": "Nhocconsr",
-    "version": 2,
-    "source": "https://hentaivnvip.com/",
-    "regexp": "(www.)?hentaivnvip.com/[0-9a-z-]+/?$",
-    "description": "Nếu có lỗi bạn có thể liên hệ tới Email: phamgiavang@gmail.com hoặc Discord",
-    "locale": "vi-VN", 
+    "author": "Kizias",
+    "version": 1,
+    "source": "https://hentaivnvip.net/",
+    "regexp": "(www.)?hentaivnvip.net/[0-9a-z-]+/?$",
+    "description": "Nếu có lỗi bạn có thể liên hệ tới Email: kizias@duck.com",
+    "locale": "vi-VN",
     "language": "javascript",
     "type": "comic",
-    "tag" : "nsfw"
+    "tag": "nsfw"
   },
   "script": {
     "home": "home.js",
