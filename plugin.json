@@ -29,6 +29,18 @@
       "tag": "nsfw"
     },
     {
+      "name": "Hentai VN",
+      "author": "Kizias",
+      "path": "https://raw.githubusercontent.com/quydo144/vBook/main/hentaivn/hentaivn.zip",
+      "version": 1,
+      "source": "https://hentaivn.in",
+      "icon": "https://raw.githubusercontent.com/quydo144/vBook/main/hentaivn/icon.png",
+      "description": "Đọc truyện trên trang hentaivn",
+      "type": "novel",
+      "locale": "vi_VN",
+      "tag": "nsfw"
+    },
+    {
       "name": "Docln Novel",
       "author": "Kizias",
       "path": "https://raw.githubusercontent.com/quydo144/vBook/main/hako/hako.zip",
