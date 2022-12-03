@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Docln Novel",
     "author": "vBook",
-    "version": 10,
+    "version": 1,
     "source": "https://docln.net",
     "regexp": "(www.)?(docln.net)/[^/]+/[^/]+/?$",
     "description": "Đọc truyện trên trang docln.net",
