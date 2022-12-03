@@ -15,6 +15,18 @@
       "type": "comic",
       "locale": "vi_VN",
       "tag": "nsfw"
+    },
+    {
+      "name": "Hentaivnvip",
+      "author": "Kizias",
+      "path": "https://raw.githubusercontent.com/quydo144/vBook/main/hentaivnvip/hentaivnvip.zip",
+      "version": 4,
+      "source": "https://hentaivnvip.net",
+      "icon": "https://raw.githubusercontent.com/quydo144/vBook/main/hentaivnvip/icon.png",
+      "description": "Đọc truyện trên trang hentaivnvip",
+      "type": "novel",
+      "locale": "vi_VN",
+      "tag": "nsfw"
     }
   ]
 }
