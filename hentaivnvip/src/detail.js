@@ -1,6 +1,14 @@
 function execute(url) {
-    let response = fetch(url);
+        let response = fetch(url, {
+         method: "GET",
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "text/html; charset=UTF-8",
+            "User-Agent": "PostmanRuntime/7.29.0"
+        }
+    });
     if (response.ok) {
+        let doc = response.html();
         return Response.success({
             name: doc.select("h1.name").first().text(),
             cover: doc.select(".book img").first().attr('src'),

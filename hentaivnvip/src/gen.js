@@ -1,6 +1,13 @@
 function execute(url, page) {
     if (!page) page = '1';
-    let response = fetch(url + '/page/' + page);
+    let response = fetch(url + '/page/' + page, {
+        method: "GET",
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "text/html; charset=UTF-8",
+            "User-Agent": "PostmanRuntime/7.29.0"
+        }
+    });
     if (response.ok) {
         let doc = response.html();
         let next = doc.select('.z-pagination').select('span.current + a').text();
