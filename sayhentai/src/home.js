@@ -5,5 +5,6 @@ function execute() {
         { title: "Manga", input: "https://sayhentai.me/genre/manga", script: "gen.js" },
         { title: "Manhua", input: "https://sayhentai.me/genre/manhua", script: "gen.js" },
         { title: "Hoàn Thành", input: "https://sayhentai.me/completed", script: "gen.js" },
+        { title: "Đang theo dõi", input: "https://sayhentai.me/user/bookmark", script: "gen.js" },
     ]);
 }

@@ -7,7 +7,7 @@
     {
       "name": "Say hentai",
       "author": "Kizias",
-      "path": "https://raw.githubusercontent.com/quydo144/vBook/main/sayhentai/plugin.zip",
+      "path": "https://raw.githubusercontent.com/quydo144/vBook/main/sayhentai/sayhentai.zip",
       "version": 1,
       "source": "https://sayhentai.me",
       "icon": "https://raw.githubusercontent.com/quydo144/vBook/main/sayhentai/icon.png",
@@ -44,7 +44,7 @@
       "name": "Docln Novel",
       "author": "Kizias",
       "path": "https://raw.githubusercontent.com/quydo144/vBook/main/hako/hako.zip",
-      "version": 2,
+      "version": 1,
       "source": "https://docln.net",
       "icon": "https://raw.githubusercontent.com/quydo144/vBook/main/hako/icon.png",
       "description": "Đọc truyện trên trang docln.net",
