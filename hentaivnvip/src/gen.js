@@ -19,7 +19,7 @@ function execute(url, page) {
             link: e.select("a").first().attr("href"),
             cover: e.select("img").first().attr("src"),
             description: e.select(".date-time").first().text(),
-            host: "https://hentaivnvip.net"
+            host: "https://hentaivnhot.com"
         })
         );
         return Response.success(data, next);

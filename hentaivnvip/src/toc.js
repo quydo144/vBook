@@ -16,7 +16,7 @@ function execute(url) {
             list.push({
                 name: e.select('span').first().text(),
                 url: e.attr("href"),
-                host: "https://hentaivnvip.net"
+                host: "https://hentaivnhot.com"
             })
         }
         return Response.success(list);

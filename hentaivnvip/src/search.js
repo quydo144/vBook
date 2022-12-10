@@ -1,5 +1,5 @@
 function execute(key, page) {
-    let response = fetch('https://hentaivnvip.net/truyen-hentai-moi/?q=' + key, {
+    let response = fetch('https://hentaivnhot.com/truyen-hentai-moi/?q=' + key, {
         method: "GET",
         headers: {
             "Access-Control-Allow-Origin": "*",
@@ -16,7 +16,7 @@ function execute(key, page) {
             link: e.select("a.name").first().attr("href"),
             cover: e.select("img").first().attr("src"),
             description: e.select(".date-time").first().text(),
-            host: "https://hentaivnvip.net"
+            host: "https://hentaivnhot.com"
         })
         );
         return Response.success(data);

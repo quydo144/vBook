@@ -1,7 +1,7 @@
 function execute(url) {
-        let response = fetch(url, {
-         method: "GET",
-          headers: {
+    let response = fetch(url, {
+        method: "GET",
+        headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "text/html; charset=UTF-8",
             "User-Agent": "PostmanRuntime/7.29.0"
@@ -16,7 +16,7 @@ function execute(url) {
             description: doc.select(".comic-description .inner").text(),
             detail: doc.select(".tsinfo .imptdt").first().text() + '<br>' + doc.select(".author").text(),
             ongoing: doc.select(".tsinfo .imptdt").first().text().indexOf("Đang") != -1,
-            host: "https://hentaivnvip.net",
+            host: "https://hentaivnhot.com",
         });
     }
     return null;

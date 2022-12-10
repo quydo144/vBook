@@ -1,5 +1,5 @@
 function execute() {
-    const response = fetch("https://hentaivnvip.net", {
+    const response = fetch("https://hentaivnhot.com", {
         method: "GET",
         headers: {
             "Access-Control-Allow-Origin": "*",
