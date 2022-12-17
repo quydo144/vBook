@@ -14,7 +14,7 @@ function execute(url) {
         for (let i = 0; i < el.size(); i++) {
             let e = el.get(i);
             let img = e.attr("src");
-            if (!img.match(/credit|hentaivn/)) {
+            if (!img.match(/credit|hentaivn|banner/)) {
                 imgs.push(img)
             }
         }
