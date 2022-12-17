@@ -1,7 +1,7 @@
 {
   "metadata": {
     "author": "Kizias",
-    "description": "Thích là nhích ^^!"
+    "description": "Thích Giang là nhích ^^!"
   },
   "data": [
     {
@@ -20,8 +20,8 @@
       "name": "Hentaivnvip",
       "author": "Kizias",
       "path": "https://raw.githubusercontent.com/quydo144/vBook/main/hentaivnvip/hentaivnvip.zip",
-      "version": 2,
-      "source": "https://hentaivnhot.com",
+      "version": 3,
+      "source": "https://hentaivnhot.net",
       "icon": "https://raw.githubusercontent.com/quydo144/vBook/main/hentaivnvip/icon.png",
       "description": "Đọc truyện trên trang hentaivnvip",
       "type": "novel",
@@ -32,8 +32,8 @@
       "name": "Hentai VN",
       "author": "Kizias",
       "path": "https://raw.githubusercontent.com/quydo144/vBook/main/hentaivn/hentaivn.zip",
-      "version": 1,
-      "source": "https://hentaivn.in",
+      "version": 2,
+      "source": "https://hentaivn.de",
       "icon": "https://raw.githubusercontent.com/quydo144/vBook/main/hentaivn/icon.png",
       "description": "Đọc truyện trên trang hentaivn",
       "type": "novel",

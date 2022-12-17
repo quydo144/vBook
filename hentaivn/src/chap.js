@@ -1,7 +1,7 @@
 function execute(url) {
     let response = fetch(url, {
         headers: {
-            "referer": "https://hentaivn.in"
+            "referer": "https://hentaivn.de"
         }
     });
 

@@ -16,7 +16,7 @@ function execute(url) {
             description: doc.select(".comic-description .inner").text(),
             detail: doc.select(".tsinfo .imptdt").first().text() + '<br>' + doc.select(".author").text(),
             ongoing: doc.select(".tsinfo .imptdt").first().text().indexOf("Đang") != -1,
-            host: "https://hentaivnhot.com",
+            host: "https://hentaivnhot.net",
         });
     }
     return null;
