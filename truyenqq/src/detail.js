@@ -1,9 +1,8 @@
-load('bypass.js');
-load('config.js');
 function execute(url) {
-    url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, BASE_URL);
+    let baseUrl = 'https://truyenqqhot.com'
+    url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, baseUrl);
     console.log(url);
-    var doc = bypass(url, Http.get(url).html());
+    var doc = Http.get(url).html();
     if (doc) {
         var cover = doc.select(".book_avatar img").first().attr("src");
         if (cover.startsWith("//")) {
@@ -12,7 +11,7 @@ function execute(url) {
         return Response.success({
             name: doc.select("h1[itemprop=name]").text(),
             cover: cover,
-            host: BASE_URL,
+            host: baseUrl,
             author: doc.select("a.org").text(),
             description: doc.select("div.story-detail-info").html(),
             detail: doc.select(".book_info div.txt").first().html(),

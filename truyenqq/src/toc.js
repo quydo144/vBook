@@ -1,9 +1,7 @@
-load('bypass.js');
-load('config.js');
 function execute(url) {
-    url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, BASE_URL);
-
-    var doc = bypass(url, Http.get(url).html());
+    let baseUrl = 'https://truyenqqhot.com'
+    url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, baseUrl);
+    var doc = fetch(url).html();
     if(doc) {
         var list = [];
         var el = doc.select(".works-chapter-list a");
@@ -12,7 +10,7 @@ function execute(url) {
             list.push({
                 name: e.text(),
                 url: e.attr("href"),
-                host: BASE_URL,
+                host: baseUrl,
             });
         }
         return Response.success(list);
