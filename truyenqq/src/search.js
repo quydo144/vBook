@@ -2,8 +2,7 @@ function execute(key, page) {
     let baseUrl = 'https://truyenqqhot.com'
     if (!page) page = '1';
     var url = baseUrl +"/tim-kiem/trang-" + page + ".html?q=" + key;
-    var doc = fetch(url).html();
-
+    var doc = fetch(encodeURI(url)).html();
     if (doc) {
         var novelList = [];
         var next = doc.select(".page_redirect").select("a:has(p.active) + a").last().text();
