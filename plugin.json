@@ -8,7 +8,7 @@
       "name": "Say hentai",
       "author": "Kizias",
       "path": "https://raw.githubusercontent.com/quydo144/vBook/main/sayhentai/sayhentai.zip",
-      "version": 1,
+      "version": 2,
       "source": "https://sayhentai.me",
       "icon": "https://raw.githubusercontent.com/quydo144/vBook/main/sayhentai/icon.png",
       "description": "Đọc truyện trên trang sayhentai",
@@ -20,7 +20,7 @@
       "name": "Hentaivnvip",
       "author": "Kizias",
       "path": "https://raw.githubusercontent.com/quydo144/vBook/main/hentaivnvip/hentaivnvip.zip",
-      "version": 4,
+      "version": 5,
       "source": "https://hentaivnhot.net",
       "icon": "https://raw.githubusercontent.com/quydo144/vBook/main/hentaivnvip/icon.png",
       "description": "Đọc truyện trên trang hentaivnvip",
@@ -50,6 +50,17 @@
       "description": "Đọc truyện trên trang docln.net",
       "type": "novel",
       "locale": "vi_VN"
+    },
+    {
+      "name": "Truyện QQ",
+      "author": "vBook",
+      "path": "https://raw.githubusercontent.com/quydo144/vBook/main/truyenqq/truyenqq.zip",
+      "version": 1,
+      "type": "comic",
+      "locale": "vi_VN",
+      "source": "https://truyenqqhot.com",
+      "icon": "https://raw.githubusercontent.com/quydo144/vBook/main/truyenqq/icon.png",
+      "description": "Đọc truyện trên trang Truyện QQ"
     }
   ]
 }
