@@ -1,8 +1,21 @@
 function execute(url) {
     let baseUrl = 'https://truyenqqhot.com'
     url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, baseUrl);
-    console.log(url);
-    var doc = Http.get(url).html();
+
+    var doc = fetch(url).html();
+
+    var regex = /document.cookie="(.*?)"/;
+    var cookie = regex.exec(doc);
+
+    if (cookie) {
+        doc = fetch(url, {
+            method: "GET",
+            headers: {
+                "Cookie": cookie[1] + '; visit-read=63baf14d03a33-63baf14d03a35'
+            }
+        }).html();
+    }
+
     if (doc) {
         var cover = doc.select(".book_avatar img").first().attr("src");
         if (cover.startsWith("//")) {

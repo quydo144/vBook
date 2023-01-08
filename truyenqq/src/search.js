@@ -1,8 +1,22 @@
 function execute(key, page) {
-    let baseUrl = 'https://truyenqqhot.com'
+    let baseUrl = 'https://truyenqqhot.com';
     if (!page) page = '1';
     var url = baseUrl +"/tim-kiem/trang-" + page + ".html?q=" + key;
-    var doc = fetch(encodeURI(url)).html();
+
+    var doc = fetch(url).html();
+
+    var regex = /document.cookie="(.*?)"/;
+    var cookie = regex.exec(doc);
+
+    if (cookie) {
+        doc = fetch(url, {
+            method: "GET",
+            headers: {
+                "Cookie": cookie[1] + '; visit-read=63baf14d03a33-63baf14d03a35'
+            }
+        }).html();
+    }
+
     if (doc) {
         var novelList = [];
         var next = doc.select(".page_redirect").select("a:has(p.active) + a").last().text();

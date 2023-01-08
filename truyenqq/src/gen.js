@@ -1,10 +1,24 @@
 function execute(url, page) {
     let baseUrl = 'https://truyenqqhot.com'
     if (!page) page = '1';
-    url = url.replace(".html", "") + "/trang-" + page + ".html";
-    var doc = fetch(baseUrl + url).html();
+    url = baseUrl + url.replace(".html", "") + "/trang-" + page + ".html";
+
+    var doc = fetch(url).html();
+
+    var regex = /document.cookie="(.*?)"/;
+    var cookie = regex.exec(doc);
+
+    if (cookie) {
+        doc = fetch(url, {
+            method: "GET",
+            headers: {
+                "Cookie": cookie[1] + '; visit-read=63baf14d03a33-63baf14d03a35'
+            }
+        }).html();
+    }
 
     if (doc) {
+      
         var novelList = [];
         var next = doc.select(".page_redirect").select("a:has(p.active) + a").last().text();
         doc.select("#main_homepage .list_grid li").forEach(e => {
