@@ -1,5 +1,5 @@
 function execute(url) {
-    let baseUrl = 'https://truyenqqhot.com'
+    let baseUrl = 'https://truyenqqmoi.com'
     url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, baseUrl);
 
     var doc = fetch(url).html();
@@ -16,7 +16,7 @@ function execute(url) {
         }).html();
     }
 
-    if(doc) {
+    if (doc) {
         var list = [];
         var el = doc.select(".works-chapter-list a");
         for (var i = el.size() - 1; i >= 0; i--) {

@@ -1,5 +1,5 @@
 function execute(url, page) {
-    let baseUrl = 'https://truyenqqhot.com'
+    let baseUrl = 'https://truyenqqmoi.com'
     if (!page) page = '1';
     url = baseUrl + url.replace(".html", "") + "/trang-" + page + ".html";
 
@@ -18,7 +18,7 @@ function execute(url, page) {
     }
 
     if (doc) {
-      
+
         var novelList = [];
         var next = doc.select(".page_redirect").select("a:has(p.active) + a").last().text();
         doc.select("#main_homepage .list_grid li").forEach(e => {

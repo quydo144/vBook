@@ -1,7 +1,7 @@
 function execute(key, page) {
-    let baseUrl = 'https://truyenqqhot.com';
+    let baseUrl = 'https://truyenqqmoi.com';
     if (!page) page = '1';
-    var url = baseUrl +"/tim-kiem/trang-" + page + ".html?q=" + key;
+    var url = baseUrl + "/tim-kiem/trang-" + page + ".html?q=" + key;
 
     var doc = fetch(url).html();
 
@@ -30,7 +30,7 @@ function execute(key, page) {
                 link: e.select(".book_name a").first().attr("href"),
                 description: e.select(".last_chapter").text(),
                 cover: cover,
-                host: baseUrl 
+                host: baseUrl
             });
         });
         return Response.success(novelList, next)
