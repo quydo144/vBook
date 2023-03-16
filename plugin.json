@@ -54,12 +54,12 @@
     {
       "name": "Truyện QQ",
       "author": "Kizias",
-      "path": "https://raw.githubusercontent.com/quydo144/vBook/main/doctruyen3q/truyenqq.zip",
-      "version": 7,
+      "path": "https://raw.githubusercontent.com/quydo144/vBook/main/truyenqq/truyenqq.zip",
+      "version": 10,
       "type": "comic",
       "locale": "vi_VN",
       "source": "https://truyenqqmoi.com",
-      "icon": "https://raw.githubusercontent.com/quydo144/vBook/main/doctruyen3q/icon.png",
+      "icon": "https://raw.githubusercontent.com/quydo144/vBook/main/truyenqq/icon.png",
       "description": "Đọc truyện trên trang Truyện QQ"
     }
   ]
