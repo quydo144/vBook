@@ -1,5 +1,5 @@
 function execute(url) {
-    let baseUrl = 'https://truyenqqmoi.com'
+    let baseUrl = 'https://truyenqqq.vn'
     url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, baseUrl);
 
     var doc = fetch(url).html();
@@ -11,7 +11,8 @@ function execute(url) {
         doc = fetch(url, {
             method: "GET",
             headers: {
-                "Cookie": cookie[1] + '; visit-read=63baf14d03a33-63baf14d03a35'
+                "Cookie": cookie[1] + '; visit-read=63baf14d03a33-63baf14d03a35',
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 Edg/112.0.1722.58"
             }
         }).html();
     }
