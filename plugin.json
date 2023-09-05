@@ -1,15 +1,15 @@
 {
   "metadata": {
     "author": "Kizias",
-    "description": "Thích Giang là nhích ^^!"
+    "description": "Thích ai là nhích ^^!"
   },
   "data": [
     {
       "name": "Say hentai",
       "author": "Kizias",
       "path": "https://raw.githubusercontent.com/quydo144/vBook/main/sayhentai/sayhentai.zip",
-      "version": 2,
-      "source": "https://sayhentai.me",
+      "version": 3,
+      "source": "https://sayhentai.fun",
       "icon": "https://raw.githubusercontent.com/quydo144/vBook/main/sayhentai/icon.png",
       "description": "Đọc truyện trên trang sayhentai",
       "type": "comic",
