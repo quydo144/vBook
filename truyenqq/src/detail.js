@@ -1,5 +1,5 @@
 function execute(url) {
-    let baseUrl = 'https://truyenqqq.vn'
+    let baseUrl = 'https://truyenqqvn.com'
     url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, baseUrl);
 
     var doc = fetch(url).html();
