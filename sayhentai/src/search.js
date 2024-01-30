@@ -1,10 +1,10 @@
 function execute(key, page) {
     if (!page) page = '1';
-    let response = fetch('https://sayhentai.fun/search', {
+    let response = fetch('https://sayhentai.club/search', {
         method: "GET",
         queries: {
-            s : key,
-            page : page
+            s: key,
+            page: page
         }
     });
     if (response.ok) {
@@ -17,7 +17,7 @@ function execute(key, page) {
                 link: e.select("h3 a").attr("href"),
                 cover: e.select("img.img-responsive").attr("data-src") || e.select("img.img-responsive").attr("src"),
                 description: e.select('.chapter').first().text(),
-                host: "https://sayhentai.fun"
+                host: "https://sayhentai.club"
             });
         });
         return Response.success(comiclist, next);
