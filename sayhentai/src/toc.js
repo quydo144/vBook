@@ -7,7 +7,7 @@ function execute(url) {
         data.push({
             name: e.text(),
             url: e.attr("href"),
-            host: "https://sayhentai.pro"
+            host: "https://sayhentai.co"
         })
     }
     return Response.success(data);
