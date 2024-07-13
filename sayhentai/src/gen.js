@@ -18,7 +18,7 @@ function execute(url, page) {
                     link: e.select(".item-thumb a").attr("href"),
                     cover: e.select(".item-thumb a img").attr("src"),
                     description: e.select('.post-on').first().text(),
-                    host: "https://sayhentai.life"
+                    host: "https://sayhentai.one"
                 });
             });
             return Response.success(comiclist);
@@ -41,7 +41,7 @@ function execute(url, page) {
                     link: e.select("h3 a").attr("href"),
                     cover: e.select("img.img-responsive").attr("data-src") || e.select("img.img-responsive").attr("src"),
                     description: e.select('.chapter').first().text(),
-                    host: "https://sayhentai.life"
+                    host: "https://sayhentai.one"
                 });
             });
             return Response.success(comiclist, next);
