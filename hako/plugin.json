@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "name": "Docln Novel",
+    "author": "vBook",
+    "version": 2,
+    "source": "https://docln.net",
+    "regexp": "(www.)?(docln.net)/[^/]+/[^/]+/?$",
+    "description": "Đọc truyện trên trang docln.net",
+    "locale": "vi_VN",
+    "type": "novel",
+    "language": "javascript"
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}

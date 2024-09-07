@@ -17,30 +17,6 @@
       "tag": "nsfw"
     },
     {
-      "name": "Hentaivnvip",
-      "author": "Kizias",
-      "path": "https://raw.githubusercontent.com/quydo144/vBook/main/hentaivnvip/hentaivnvip.zip",
-      "version": 5,
-      "source": "https://hentaivnhot.net",
-      "icon": "https://raw.githubusercontent.com/quydo144/vBook/main/hentaivnvip/icon.png",
-      "description": "Đọc truyện trên trang hentaivnvip",
-      "type": "novel",
-      "locale": "vi_VN",
-      "tag": "nsfw"
-    },
-    {
-      "name": "Hentai VN",
-      "author": "Kizias",
-      "path": "https://raw.githubusercontent.com/quydo144/vBook/main/hentaivn/hentaivn.zip",
-      "version": 2,
-      "source": "https://hentaivn.de",
-      "icon": "https://raw.githubusercontent.com/quydo144/vBook/main/hentaivn/icon.png",
-      "description": "Đọc truyện trên trang hentaivn",
-      "type": "novel",
-      "locale": "vi_VN",
-      "tag": "nsfw"
-    },
-    {
       "name": "Docln Novel",
       "author": "Kizias",
       "path": "https://raw.githubusercontent.com/quydo144/vBook/main/hako/hako.zip",
