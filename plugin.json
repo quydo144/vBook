@@ -31,10 +31,10 @@
       "name": "Truyện QQ",
       "author": "Kizias",
       "path": "https://raw.githubusercontent.com/quydo144/vBook/main/truyenqq/truyenqq.zip",
-      "version": 12,
+      "version": 13,
       "type": "comic",
       "locale": "vi_VN",
-      "source": "https://truyenqqvn.com",
+      "source": "hhttps://truyenqqto.com",
       "icon": "https://raw.githubusercontent.com/quydo144/vBook/main/truyenqq/icon.png",
       "description": "Đọc truyện trên trang Truyện QQ"
     }

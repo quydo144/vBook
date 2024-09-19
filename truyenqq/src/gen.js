@@ -1,5 +1,5 @@
 function execute(url, page) {
-    let baseUrl = 'https://truyenqqvn.com'
+    let baseUrl = 'https://truyenqqto.com'
     if (!page) page = '1';
     url = baseUrl + url.replace(".html", "") + "/trang-" + page + ".html";
 

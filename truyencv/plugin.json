@@ -1,14 +1,14 @@
 {
   "metadata": {
-    "name": "truyencv",
-    "author": "Nhocconsr",
+    "name": "Truyện CV",
+    "author": "vBook",
     "version": 1,
-    "source": "https://m.truyencv.vn/",
-    "regexp": "https://m.truyencv.vn/truyen/[0-9a-z-]+/?$",
-    "description": "TruyenCV.",
-    "locale": "vi-VN",
+    "source": "https://metruyencv.com",
+    "regexp": "(www.)?api.mottruyen.com/story/.*?$",
+    "description": "Đọc truyện trên trang Truyện CV",
+    "locale": "vi_VN",
     "language": "javascript",
-    "type": "novel"
+    "encrypt": true
   },
   "script": {
     "home": "home.js",
