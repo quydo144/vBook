@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Say Hentai",
     "author": "Kizias",
-    "version": 8,
+    "version": 9,
     "source": "https://sayhentai.ink",
     "regexp": "(www.)?sayhentai.ink/[^/]+.html$",
     "description": "Đọc truyện trên trang Say Hentai",
