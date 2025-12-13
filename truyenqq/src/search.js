@@ -1,5 +1,5 @@
 function execute(key, page) {
-    let baseUrl = 'https://truyenqqto.com';
+    let baseUrl = 'https://truyenqqno.com';
     if (!page) page = '1';
     var url = baseUrl + "/tim-kiem/trang-" + page + ".html?q=" + key;
     console.log(url);
