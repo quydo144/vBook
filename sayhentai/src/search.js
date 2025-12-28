@@ -1,6 +1,7 @@
+load('config.js');
 function execute(key, page) {
     if (!page) page = '1';
-    let response = fetch('http://178.128.101.190:8000/search', {
+    let response = fetch(BASE_URL + '/search', {
         method: "GET",
         queries: {
             s: key,
@@ -14,10 +15,10 @@ function execute(key, page) {
         doc.select(".page-item-detail").forEach(e => {
             comiclist.push({
                 name: e.select("h3 a").text(),
-                link: e.select("h3 a").attr("href"),
+                link: e.select("h3 a").attr("href").replace(/^https?:\/\/[^/]+/, BASE_URL),
                 cover: e.select("img.img-responsive").attr("data-src") || e.select("img.img-responsive").attr("src"),
                 description: e.select('.chapter').first().text(),
-                host: "http://178.128.101.190:8000"
+                host: BASE_URL
             });
         });
         return Response.success(comiclist, next);

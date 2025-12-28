@@ -1,3 +1,4 @@
+load('config.js');
 function execute(url, page) {
     if (url.includes("bookmark")) {
         let response = fetch(url, {
@@ -15,10 +16,10 @@ function execute(url, page) {
             doc.select(".table.list-bookmark tbody tr").forEach(e => {
                 comiclist.push({
                     name: e.select(".item-thumb a").attr("title"),
-                    link: e.select(".item-thumb a").attr("href"),
+                    link: e.select(".item-thumb a").attr("href").replace(/^https?:\/\/[^/]+/, BASE_URL),
                     cover: e.select(".item-thumb a img").attr("src"),
                     description: e.select('.post-on').first().text(),
-                    host: "http://178.128.101.190:8000"
+                    host: BASE_URL
                 });
             });
             return Response.success(comiclist);
@@ -38,10 +39,10 @@ function execute(url, page) {
             doc.select(".page-item-detail").forEach(e => {
                 comiclist.push({
                     name: e.select("h3 a").text(),
-                    link: e.select("h3 a").attr("href"),
+                    link: e.select("h3 a").attr("href").replace(/^https?:\/\/[^/]+/, BASE_URL),
                     cover: e.select("img.img-responsive").attr("data-src") || e.select("img.img-responsive").attr("src"),
                     description: e.select('.chapter').first().text(),
-                    host: "http://178.128.101.190:8000"
+                    host: BASE_URL
                 });
             });
             return Response.success(comiclist, next);

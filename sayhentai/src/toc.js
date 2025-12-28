@@ -1,3 +1,4 @@
+load('config.js');
 function execute(url) {
     let doc = fetch(url).html();
     let el = doc.select("ul.box-list-chapter li").select("a");
@@ -6,8 +7,8 @@ function execute(url) {
         var e = el.get(i);
         data.push({
             name: e.text(),
-            url: e.attr("href"),
-            host: "http://178.128.101.190:8000"
+            url: e.attr("href").replace(/^https?:\/\/[^/]+/, BASE_URL),
+            host: BASE_URL
         })
     }
     return Response.success(data);
