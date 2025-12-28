@@ -1,5 +1,5 @@
 function execute() {
-    let response = fetch('http://178.128.101.190:8000');
+    let response = fetch('https://www.sayhentai.live');
     if (response.ok) {
         let doc = response.html();
         const data = [];
