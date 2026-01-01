@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Say Hentai",
     "author": "Kizias",
-    "version": 17,
+    "version": 18,
     "source": "http://178.128.101.190:8000",
     "regexp": "(www.)?178.128.101.190:8000/[^/]+.html$",
     "description": "Đọc truyện trên trang Say Hentai",
