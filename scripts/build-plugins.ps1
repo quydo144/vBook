@@ -144,16 +144,22 @@ foreach ($pluginDir in $pluginDirs) {
     New-Item -ItemType Directory -Path $tempPath | Out-Null
 
     try {
-        $items = Get-ChildItem -Path $pluginDir.FullName -Force | Where-Object {
-            -not ($_.PSIsContainer -eq $false -and $_.Extension -eq '.zip')
+        $srcPath = Join-Path $pluginDir.FullName 'src'
+        $iconPath = Join-Path $pluginDir.FullName 'icon.png'
+
+        if (-not (Test-Path $pluginManifestPath)) {
+            throw ("Plugin '{0}' is missing plugin.json." -f $pluginName)
         }
 
-        if (-not $items) {
-            throw ("Plugin directory '{0}' does not contain any files to package." -f $pluginName)
+        if (-not (Test-Path $srcPath)) {
+            throw ("Plugin '{0}' is missing src directory." -f $pluginName)
         }
 
-        foreach ($item in $items) {
-            Copy-Item -Path $item.FullName -Destination $tempPath -Recurse -Force
+        Copy-Item -Path $pluginManifestPath -Destination (Join-Path $tempPath 'plugin.json') -Force
+        Copy-Item -Path $srcPath -Destination (Join-Path $tempPath 'src') -Recurse -Force
+
+        if (Test-Path $iconPath) {
+            Copy-Item -Path $iconPath -Destination (Join-Path $tempPath 'icon.png') -Force
         }
 
         if (Test-Path $zipPath) {
