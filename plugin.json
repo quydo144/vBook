@@ -9,7 +9,7 @@
       "author": "Kizias",
       "path": "https://raw.githubusercontent.com/quydo144/vBook/main/sayhentai/sayhentai.zip",
       "version": 20,
-      "source": "http://178.128.101.190:8000",
+      "source": "https://sayhentai.vc",
       "icon": "https://raw.githubusercontent.com/quydo144/vBook/main/sayhentai/icon.png",
       "description": "Đọc truyện trên trang sayhentai",
       "type": "comic",
@@ -40,4 +40,3 @@
     }
   ]
 }
-
