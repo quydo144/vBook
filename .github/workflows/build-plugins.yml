@@ -1,0 +1,128 @@
+name: Build Plugins
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '**/src/**'
+      - '**/plugin.json'
+      - '**/icon.png'
+      - '**/test.json'
+      - 'scripts/build-plugins.ps1'
+      - '.github/workflows/build-plugins.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect changed plugin folders
+        id: changes
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          BEFORE="${{ github.event.before }}"
+          AFTER="${{ github.sha }}"
+
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            if git rev-parse HEAD~1 >/dev/null 2>&1; then
+              BEFORE="$(git rev-parse HEAD~1)"
+            else
+              BEFORE="$(git rev-list --max-parents=0 HEAD)"
+            fi
+          fi
+
+          declare -A plugin_roots=()
+          for file in */plugin.json; do
+            [[ -f "$file" ]] || continue
+            plugin_roots["${file%/plugin.json}"]=1
+          done
+
+          declare -A changed_plugins=()
+          while IFS= read -r path; do
+            [[ -n "$path" ]] || continue
+            path="${path#./}"
+            top="${path%%/*}"
+
+            if [[ "$path" == "$top" ]]; then
+              continue
+            fi
+
+            if [[ -n "${plugin_roots[$top]:-}" ]]; then
+              changed_plugins["$top"]=1
+            fi
+          done < <(git diff --name-only "$BEFORE" "$AFTER")
+
+          if [[ ${#changed_plugins[@]} -eq 0 ]]; then
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          mapfile -t sorted_plugins < <(printf '%s\n' "${!changed_plugins[@]}" | sort)
+
+          {
+            echo "has_changes=true"
+            echo "plugin_names<<EOF"
+            printf '%s\n' "${sorted_plugins[@]}"
+            echo "EOF"
+            echo "zip_paths<<EOF"
+            for plugin in "${sorted_plugins[@]}"; do
+              printf '%s/%s.zip\n' "$plugin" "$plugin"
+            done
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+          echo "Changed plugins: ${sorted_plugins[*]}"
+
+      - name: Build changed plugin zip files
+        if: steps.changes.outputs.has_changes == 'true'
+        shell: pwsh
+        env:
+          CHANGED_PLUGINS: ${{ steps.changes.outputs.plugin_names }}
+        run: |
+          $pluginNames = $env:CHANGED_PLUGINS -split "`n" | ForEach-Object { $_.Trim() } | Where-Object { $_ }
+          ./scripts/build-plugins.ps1 -PluginNames $pluginNames
+
+      - name: Upload build artifacts
+        if: steps.changes.outputs.has_changes == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: plugin-zips
+          path: ${{ steps.changes.outputs.zip_paths }}
+
+      - name: Commit updated plugin files
+        if: steps.changes.outputs.has_changes == 'true'
+        shell: bash
+        env:
+          CHANGED_PLUGINS: ${{ steps.changes.outputs.plugin_names }}
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          while IFS= read -r plugin; do
+            [[ -n "$plugin" ]] || continue
+            git add "$plugin/plugin.json" "$plugin/$plugin.zip"
+          done <<< "$CHANGED_PLUGINS"
+
+          git add plugin.json
+
+          if git diff --cached --quiet; then
+            echo "No plugin changes detected"
+            exit 0
+          fi
+
+          git commit -m "chore: bump plugin versions [skip ci]"
+          git push
