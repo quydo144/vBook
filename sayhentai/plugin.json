@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Say Hentai",
     "author": "Kizias",
-    "version": 20,
+    "version": 21,
     "source": "https://sayhentai.vc",
     "description": "Đọc truyện trên trang Say Hentai",
     "locale": "vi-VN",
@@ -19,3 +19,4 @@
     "chap": "chap.js"
   }
 }
+
