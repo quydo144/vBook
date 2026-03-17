@@ -17,6 +17,21 @@ function Write-JsonFile {
     Set-Content -Path $Path -Value ($json + [Environment]::NewLine) -Encoding utf8
 }
 
+function Get-RootEntry {
+    param(
+        [object]$RootManifest,
+        [string]$PluginName
+    )
+
+    if (-not $RootManifest -or -not $RootManifest.data) {
+        return $null
+    }
+
+    return $RootManifest.data | Where-Object {
+        $_.path -like "*/$PluginName/$PluginName.zip"
+    } | Select-Object -First 1
+}
+
 function Update-RootVersion {
     param(
         [object]$RootManifest,
@@ -24,13 +39,7 @@ function Update-RootVersion {
         [int]$Version
     )
 
-    if (-not $RootManifest -or -not $RootManifest.data) {
-        return $false
-    }
-
-    $entry = $RootManifest.data | Where-Object {
-        $_.path -like "*/$PluginName/$PluginName.zip"
-    } | Select-Object -First 1
+    $entry = Get-RootEntry -RootManifest $RootManifest -PluginName $PluginName
 
     if ($entry) {
         $entry.version = $Version
@@ -41,6 +50,24 @@ function Update-RootVersion {
         Write-Host ("No root plugin.json entry found for {0}" -f $PluginName)
         return $false
     }
+}
+
+function Update-RootSource {
+    param(
+        [object]$RootManifest,
+        [string]$PluginName,
+        [string]$Source
+    )
+
+    $entry = Get-RootEntry -RootManifest $RootManifest -PluginName $PluginName
+
+    if ($entry) {
+        $entry.source = $Source
+        Write-Host ("Updated root plugin.json source for {0} -> {1}" -f $PluginName, $Source)
+        return $true
+    }
+
+    return $false
 }
 
 $pluginDirs = Get-ChildItem -Path $RootPath -Directory | Where-Object {
@@ -89,8 +116,23 @@ foreach ($pluginDir in $pluginDirs) {
 
     $nextVersion = [int]$pluginManifest.metadata.version + 1
     $pluginManifest.metadata.version = $nextVersion
-    Write-JsonFile -Path $pluginManifestPath -Data $pluginManifest
     Write-Host ("Updated {0} version -> {1}" -f $pluginName, $nextVersion)
+
+    $configJsPath = Join-Path $pluginDir.FullName 'src\config.js'
+    if (Test-Path $configJsPath) {
+        $configContent = Get-Content -Path $configJsPath -Raw
+        if ($configContent -match "const\s+BASE_URL\s*=\s*'([^']+)'") {
+            $baseUrl = $matches[1]
+            $pluginManifest.metadata.source = $baseUrl
+            Write-Host ("Updated {0} source from config.js -> {1}" -f $pluginName, $baseUrl)
+
+            if (Update-RootSource -RootManifest $rootManifest -PluginName $pluginName -Source $baseUrl) {
+                $rootManifestModified = $true
+            }
+        }
+    }
+
+    Write-JsonFile -Path $pluginManifestPath -Data $pluginManifest
 
     if (Update-RootVersion -RootManifest $rootManifest -PluginName $pluginName -Version $nextVersion) {
         $rootManifestModified = $true
