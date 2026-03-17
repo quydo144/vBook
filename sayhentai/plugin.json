@@ -4,6 +4,7 @@
     "author": "Kizias",
     "version": 22,
     "source": "https://sayhentai.vc",
+    "regexp": "",
     "description": "Đọc truyện trên trang Say Hentai",
     "locale": "vi-VN",
     "language": "javascript",
@@ -19,4 +20,3 @@
     "chap": "chap.js"
   }
 }
-

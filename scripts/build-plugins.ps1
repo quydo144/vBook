@@ -70,6 +70,29 @@ function Update-RootSource {
     return $false
 }
 
+function Get-HostRegexFromUrl {
+    param(
+        [string]$Url
+    )
+
+    if ([string]::IsNullOrWhiteSpace($Url)) {
+        return $null
+    }
+
+    try {
+        $uri = [Uri]$Url
+        if (-not $uri.Host) {
+            return $null
+        }
+
+        # Default fallback pattern: match any path under the plugin host.
+        return ("(www.)?{0}/.*?$" -f [Regex]::Escape($uri.Host))
+    }
+    catch {
+        return $null
+    }
+}
+
 $pluginDirs = Get-ChildItem -Path $RootPath -Directory | Where-Object {
     Test-Path (Join-Path $_.FullName 'plugin.json')
 }
@@ -119,10 +142,12 @@ foreach ($pluginDir in $pluginDirs) {
     Write-Host ("Updated {0} version -> {1}" -f $pluginName, $nextVersion)
 
     $configJsPath = Join-Path $pluginDir.FullName 'src\config.js'
+    $resolvedSource = $pluginManifest.metadata.source
     if (Test-Path $configJsPath) {
         $configContent = Get-Content -Path $configJsPath -Raw
-        if ($configContent -match "const\s+BASE_URL\s*=\s*'([^']+)'") {
+        if ($configContent -match 'const\s+BASE_URL\s*=\s*["'']([^"'']+)["'']') {
             $baseUrl = $matches[1]
+            $resolvedSource = $baseUrl
             $pluginManifest.metadata.source = $baseUrl
             Write-Host ("Updated {0} source from config.js -> {1}" -f $pluginName, $baseUrl)
 
@@ -130,6 +155,15 @@ foreach ($pluginDir in $pluginDirs) {
                 $rootManifestModified = $true
             }
         }
+    }
+
+    $hostRegex = Get-HostRegexFromUrl -Url $resolvedSource
+    if (-not [string]::IsNullOrWhiteSpace($hostRegex)) {
+        $pluginManifest.metadata.regexp = $hostRegex
+        Write-Host ("Updated {0} regexp from source host -> {1}" -f $pluginName, $hostRegex)
+    }
+    else {
+        Write-Host ("Skipped regexp update for {0}: unable to resolve source host." -f $pluginName)
     }
 
     Write-JsonFile -Path $pluginManifestPath -Data $pluginManifest

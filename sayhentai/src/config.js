@@ -1,1 +1,1 @@
-const BASE_URL = "https://sayhentai.vc"
+const BASE_URL = 'https://sayhentai.vc'
